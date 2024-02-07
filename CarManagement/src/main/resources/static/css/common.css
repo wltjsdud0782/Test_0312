@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    height: 100%;
+    font-size: 14pt;
+    margin: 0 auto;
+}
+
+.header-div{
+    margin-top: 2rem;
+    margin-bottom: 10px;
+}
+
+.headerTable{
+    font-weight: bold;
+}
+
+.headerTable, th, td{
+    border: 2px solid white;
+}
+
+.pointer-span{
+    cursor: pointer;
+}

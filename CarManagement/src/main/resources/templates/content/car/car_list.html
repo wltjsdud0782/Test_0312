@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/car_layout}" >
+
+<th:block layout:fragment="content_css">
+    <!-- html 파일이 열릴때 같이 실행되는 css -->
+    <link rel="stylesheet" href="/css/car/car_list.css">
+</th:block>
+
+<th:block layout:fragment="contentFragment">
+    <!-- html 코드 작성 -->
+    <div class="container">
+        <table class="table align-middle">
+            <tr>
+                <td colspan="6">
+                    <div class="row">
+                        <div class="col">
+                            -차량등록
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-end">제조사</td>
+                <td>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="">현대</option>
+                        <option value="">기아</option>
+                        <option value="">쌍용</option>
+                    </select>
+                </td>
+                <td class="text-end">모델명</td>
+                <td>
+                    <input type="text" class="form-control">
+                </td>
+                <td class="text-end">차량가격</td>
+                <td>
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" class="text-end">
+                    <input type="button" value="등록">
+                </td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <tr>
+                        <td>
+                            -차량목록
+                        </td>
+                    </tr>
+                </table>        
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped text-center">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="50%">
+                        <col width="30%">
+                    </colgroup>
+                    <thead>
+                        <tr class="table-primary fw-bold">
+                            <td>모델번호</td>
+                            <td>모델명</td>
+                            <td>제조사</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="content_js">
+    <!-- html 파일이 열릴때 같이 실행되는 js -->
+    <!-- <script src="/"></script> -->
+</th:block>
+</html>

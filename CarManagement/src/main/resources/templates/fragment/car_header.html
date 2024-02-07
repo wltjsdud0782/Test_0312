@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="headerFragment">
+    <!-- html 코드 작성 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table table-info headerTable text-center">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <tr>
+                        <td class="pointer-span" th:onclick="location.href='/'">홈</td>
+                        <td class="pointer-span" th:onclick="location.href='/car/list'">차량관리</td>
+                        <td class="pointer-span" th:onclick="location.href='/sales/salesForm'">판매 정보 등록</td>
+                        <td class="pointer-span" th:onclick="location.href='/sales/list'">판매 목록</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="content_js">
+    <!-- html 파일이 열릴때 같이 실행되는 js -->
+    <script src="/js/fragment/car_header.js"></script>
+</th:block>
+</html>
