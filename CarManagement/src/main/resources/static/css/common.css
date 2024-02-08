@@ -14,7 +14,7 @@
     font-weight: bold;
 }
 
-.headerTable, th, td{
+.headerTable td, .headerTable>tr{
     border: 2px solid white;
 }
 
