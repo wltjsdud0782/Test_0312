@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col">
-                <table class="table table-bordered border-secondary-subtle table-hover text-center">
+                <table class="table table-bordered border-secondary-subtle table-hover text-center align-middle" style="font-size: 13pt;">
                     <colgroup>
                         <col width="12%">
                         <col width="14%">
@@ -39,14 +39,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
+                        <tr th:each="salesCar, state: ${salesCarList}">
+                            <td>[[${state.index + 1}]]</td>
+                            <td>[[${salesCar.salesName}]]</td>
+                            <td>[[${salesCar.salesTel}]]</td>
+                            <td>[[${salesCar.salesDate}]]</td>
+                            <td>[[${salesCar.salesColor}]]</td>
+                            <td>[[${salesCar.carVO.carName}]]</td>
+                            <td>[[${#numbers.formatCurrency(salesCar.carVO.carPrice)}]]</td>
                         </tr>
                     </tbody>
                 </table>

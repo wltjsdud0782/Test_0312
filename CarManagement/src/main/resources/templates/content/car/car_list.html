@@ -11,44 +11,46 @@
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
     <div class="container">
-        <table class="table align-middle">
-            <tr>
-                <td colspan="6">
-                    <div class="row">
-                        <div class="col">
-                            -차량등록
+        <form action="/car/insertCar" method="post">
+            <table class="table table-borderless align-middle">
+                <tr>
+                    <td colspan="6">
+                        <div class="row">
+                            <div class="col">
+                                -차량등록
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-end">제조사</td>
-                <td>
-                    <select class="form-select text-center" aria-label="Default select example">
-                        <option value="">현대</option>
-                        <option value="">기아</option>
-                        <option value="">쌍용</option>
-                    </select>
-                </td>
-                <td class="text-end">모델명</td>
-                <td>
-                    <input type="text" class="form-control">
-                </td>
-                <td class="text-end">차량가격</td>
-                <td>
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6" class="text-end">
-                    <input type="button" class="btn btn-outline-primary" value="등록">
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-end">제조사</td>
+                    <td>
+                        <select name="carCompany" class="form-select text-center" aria-label="Default select example">
+                            <option value="현대">현대</option>
+                            <option value="기아">기아</option>
+                            <option value="쌍용">쌍용</option>
+                        </select>
+                    </td>
+                    <td class="text-end">모델명</td>
+                    <td>
+                        <input name="carName" type="text" class="form-control text-center">
+                    </td>
+                    <td class="text-end">차량가격</td>
+                    <td>
+                        <input name="carPrice" type="text" class="form-control text-center" value="10000">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-end">
+                        <input type="submit" class="btn btn-outline-primary" value="등록">
+                    </td>
+                </tr>
+            </table>
+        </form>
 
         <div class="row">
             <div class="col">
-                <table class="table">
+                <table class="table table-borderless">
                     <tr>
                         <td>
                             -차량목록
@@ -74,10 +76,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
+                        <tr th:each="car : ${carList}">
+                            <td>[[${car.carNum}]]</td>
+                            <td>[[${car.carName}]]</td>
+                            <td>[[${car.carCompany}]]</td>
                         </tr>
                     </tbody>
                 </table>

@@ -3,7 +3,30 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="carMapper">
-	
+    <resultMap id="car" type="com.green.CarManagement.car.vo.CarVO">
+        <id     column="CAR_NUM"    property="carNum"/>
+        <result column="CAR_NAME"   property="carName"/>
+        <result column="CAR_PRICE"  property="carPrice"/>
+        <result column="CAR_COMPANY" property="carCompany"/>
+    </resultMap>
+
+    <select id="selectCar" resultMap="car">
+        SELECT
+        *
+        FROM CAR_INFO
+    </select>
+
+    <insert id="insertCar">
+        INSERT INTO CAR_INFO (
+            CAR_NAME
+            , CAR_PRICE
+            , CAR_COMPANY
+        ) VALUES (
+            #{carName}
+            ,#{carPrice}
+            ,#{carCompany}
+        )
+    </insert>
 </mapper>
 
 

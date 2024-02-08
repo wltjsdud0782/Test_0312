@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="salesMapper">
+    <resultMap id="sales" type="com.green.CarManagement.sales.vo.SalesVO">
+        <id     column="SALES_NUM"      property="salesNum"/>
+        <result column="SALES_NAME"     property="salesName"/>
+        <result column="SALES_TEL"      property="salesTel"/>
+        <result column="SALES_COLOR"    property="salesColor"/>
+        <result column="SALES_DATE"     property="salesDate"/>
+        <association property="carVO" resultMap="carMapper.car"/>
+    </resultMap>
+
+    <select id="selectCarName" resultMap="carMapper.car">
+        SELECT
+        *
+        FROM CAR_INFO
+    </select>
+
+    <insert id="insertSales">
+        INSERT INTO SALES_INFO (
+            SALES_NAME
+            , SALES_COLOR
+            , CAR_NUM
+            , SALES_TEL
+        ) VALUES (
+            #{salesName}
+            , #{salesColor}
+            , #{carNum}
+            , #{salesTel}
+        )
+    </insert>
+
+    <select id="selectSalesCar" resultMap="sales">
+        SELECT
+            SALES_NAME
+            , SALES_TEL
+            , SALES_DATE
+            , SALES_COLOR
+            , (SELECT CAR_NAME FROM CAR_INFO WHERE CAR_NUM = SALES_INFO.CAR_NUM) CAR_NAME
+            , (SELECT CAR_PRICE FROM CAR_INFO WHERE CAR_NUM = SALES_INFO.CAR_NUM) CAR_PRICE
+        FROM SALES_INFO
+        ORDER BY SALES_DATE DESC
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
