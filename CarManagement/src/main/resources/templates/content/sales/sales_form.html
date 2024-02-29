@@ -11,13 +11,13 @@
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
     <div class="container">
-        <form action="/sales/insertSales" method="post">
+        <form action="/sales/insertSales" method="post" id="salesOne">
             <div class="row mt-4">
                 <div class="col-2 text-end">
                     <span>구매자명</span>
                 </div>
                 <div class="col-8">
-                    <input name="salesName" type="text" class="form-control">
+                    <input name="salesName" type="text" class="form-control salesName">
                 </div>
             </div>
 
@@ -48,13 +48,13 @@
                     <span>연락처</span>
                 </div>
                 <div class="col-6">
-                    <input name="salesTel" type="text" class="form-control">
+                    <input name="salesTel" type="text" class="form-control salesTel">
                 </div>
             </div>
 
             <div class="row mt-4">
                 <div class="col text-center">
-                    <input type="submit" class="btn btn-outline-primary" value="등록">
+                    <input type="button" class="btn btn-outline-primary" onclick="insert()" value="등록">
                 </div>
             </div>
         </form>
@@ -63,6 +63,6 @@
 
 <th:block layout:fragment="content_js">
     <!-- html 파일이 열릴때 같이 실행되는 js -->
-    <!-- <script src="/"></script> -->
+    <script src="/js/content/sales_form.js"></script>
 </th:block>
 </html>
