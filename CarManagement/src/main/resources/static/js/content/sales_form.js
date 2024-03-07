@@ -1,8 +1,8 @@
 function insert(){
-    a = document.querySelector('.salesName').value;
-    b = document.querySelector('.salesTel').value;
+    const salesName = document.querySelector('.salesName').value;
+    const salesTel = document.querySelector('.salesTel').value;
 
-    if (a == '' || b == ''){
+    if (salesName == '' || salesTel == ''){
         alert('값을 입력해주세요.')
     }
     else{
