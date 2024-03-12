@@ -24,6 +24,9 @@ public class SalesController {
 
     @PostMapping("/insertSales")
     public String insertSales(SalesVO salesVO){ // 판매 정보 등록
+        String reTel = "(\\d{3})(\\d{3,4})(\\d{4})";
+        salesVO.setSalesTel(salesVO.getSalesTel().replaceAll(reTel, "$1-$2-$3"));
+
         salesService.insertSales(salesVO);
         return "redirect:/sales/list";
     }
